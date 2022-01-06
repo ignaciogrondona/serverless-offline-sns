@@ -93,7 +93,9 @@ class ServerlessOfflineSns {
         } else if (this.serverless.config.servicePath) {
             this.location = this.serverless.config.servicePath;
         }
-        if (this.serverless.service.provider.region) {
+        if (this.config.region) {
+            this.region = this.config.region;
+        } else if (this.serverless.service.provider.region) {
             this.region = this.serverless.service.provider.region;
         } else {
             this.region = "us-east-1";
